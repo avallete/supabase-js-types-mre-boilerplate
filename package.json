@@ -1,0 +1,23 @@
+{
+  "name": "types-mre-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:run": "cd ./db && docker-compose up -d --wait",
+    "db:clean": "cd ./db && docker-compose down --volumes",
+    "generate-types": "pnpx supabase gen types --db-url=postgresql://postgres:postgres@0.0.0.0:5432 --lang=typescript > database.types.ts",
+    "generate": "pnpm run db:clean && pnpm run db:run && sleep 3 && pnpm run generate-types"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.3",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "supabase": "^2.23.4",
+    "ts-expect": "^1.3.0",
+    "tsd": "^0.32.0"
+  }
+}
