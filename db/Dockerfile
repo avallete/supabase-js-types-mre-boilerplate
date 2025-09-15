@@ -1,3 +1,3 @@
-FROM supabase/postgres:14.1.0
+FROM supabase/postgres:17.6.1.004
 
 COPY --chown=postgres:postgres --chmod=600 server.key server.crt /var/lib/postgresql/
